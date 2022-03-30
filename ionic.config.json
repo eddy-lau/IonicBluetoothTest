@@ -1,0 +1,7 @@
+{
+  "name": "BluetoothTest",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}

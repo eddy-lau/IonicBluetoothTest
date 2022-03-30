@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "BluetoothTest",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

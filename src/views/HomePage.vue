@@ -13,7 +13,7 @@
     <ion-content :fullscreen="true">
       <div id="container">
         <ion-list>
-          <ion-item v-for="device in state.devices" v-bind:key="device.deviceId" @click="connect(device)">
+          <ion-item button v-for="device in state.devices" v-bind:key="device.deviceId" @click="connect(device)">
             <ion-label>{{device.deviceId}} {{device.name}}</ion-label>
             <ion-spinner v-if="device.state===1"/>
             <span v-if="device.state===2">✓</span>
@@ -88,6 +88,12 @@ export default defineComponent({
     },
     onDisconnected(deviceId:string) {
       this.state.devices[deviceId].state = DeviceState.unconnected
+    },
+    async read(device:BleDevice) {
+      let service = ''
+      let charateristic = ''
+      let data = await BleClient.read(device.deviceId, service, charateristic)
+      
     },
     async showSuccess(device:BleDevice) {
         const alert = await alertController
